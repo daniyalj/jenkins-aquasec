@@ -1,5 +1,6 @@
 FROM registry.redhat.io/openshift3/jenkins-2-rhel7:v3.11
-COPY plugins.txt /plugins.txt && aqua-version.sh /aqua-version.sh
+COPY plugins.txt /plugins.txt
+COPY aqua-version.sh /aqua-version.sh
 
 USER 0
 
