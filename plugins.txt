@@ -1,2 +1,2 @@
-aqua-security-scanner
-aqua-microscanner
+aqua-security-scanner:aqua-security-scanner-version
+aqua-microscanner:aqua-microscanner-version
