@@ -1,4 +1,4 @@
-FROM openshift/jenkins-2-centos7
+FROM openshift/jenkins-2-rhel7
 COPY plugins.txt /plugins.txt
 
 USER 0
