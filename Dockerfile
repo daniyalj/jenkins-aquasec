@@ -1,4 +1,4 @@
-FROM openshift/jenkins-2-rhel7
+FROM registry.redhat.io/openshift3/jenkins-2-rhel7:v3.11
 COPY plugins.txt /plugins.txt
 
 USER 0
