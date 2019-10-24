@@ -15,27 +15,28 @@ spec:
     jenkinsPipelineStrategy:
       jenkinsfile: |-
         pipeline {
-            agent any
-            stages {
-            stage('Build') {
-                steps {
-                    script {
-                        openshift.withCluster() {
-                            openshift.withProject() {
-                                openshift.newBuild('https://github.com/arctiqteam/weather-app#static')
-                                sh 'oc logs -f bc/weather-app'
-                            }
-                        }
-                    }
-                }
-            }
-                stage('Scan') {
-                    steps {
-                        script {
-                            aqua customFlags: '', hideBase: false, hostedImage: 'cicd//weather-app:latest', localImage: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'fail', policies: '', register: false, registry: 'OpenShift Internal Registry', showNegligible: false                }
-                    }
-                }
-             }
+          agent any
+          stages {
+          stage('Build') {
+              steps {
+                  script {
+                      openshift.withCluster() {
+                          openshift.withProject() {
+                              openshift.newBuild('https://github.com/arctiqteam/weather-app#static')
+                              sh 'sleep 10'
+                              sh 'oc logs -f bc/weather-app'
+                          }
+                      }
+                  }
+              }
+          }
+              stage('Scan') {
+                  steps {
+                      script {
+                          aqua customFlags: '', hideBase: false, hostedImage: 'cicd/weather-app:latest', localImage: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: 'openshift', showNegligible: false            }
+              }
            }
+         }
+        }
     type: JenkinsPipeline
   triggers: []
