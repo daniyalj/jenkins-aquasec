@@ -33,7 +33,8 @@ spec:
               stage('Scan') {
                   steps {
                       script {
-                          aqua customFlags: '', hideBase: false, hostedImage: 'cicd/weather-app:latest', localImage: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: 'openshift', showNegligible: false            }
+                          aqua customFlags: '', hideBase: false, hostedImage: 'cicd/weather-app:latest', localImage: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'fail', policies: '', register: false, registry: 'openshift', showNegligible: false
+                      }
               }
            }
          }
